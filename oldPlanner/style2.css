@@ -1,0 +1,43 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  margin: 20px auto;
+  background-color: white;
+  height: auto;
+  width: 900px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px 0px;
+  position: relative;
+}
+.header {
+}
+input {
+  height: 50px;
+  width: 100%;
+  padding: 6px;
+  margin-top: 10px;
+
+  border: none;
+}
+.saveBtn {
+  cursor: pointer;
+}
+.saveBtn:hover {
+  font-weight: bold;
+}
+.table {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+}
+.todaysDate {
+  display: flex;
+  justify-content: center;
+}
