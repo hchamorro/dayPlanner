@@ -1,21 +1,25 @@
-/* variables */
 $(document).ready(function() {
+  /* variables */
   var d = new Date();
   var month = d.getMonth() + 1;
   var day = d.getDate();
 
   /* todays date */
   var outputDate =
-    d.getFullYear() +
-    "/" +
     (month < 10 ? "0" : "") +
     month +
     "/" +
     (day < 10 ? "0" : "") +
-    day;
+    day +
+    "/" +
+    d.getFullYear();
 
   /* helper functions */
-  $("#todaysDate").text(outputDate);
+
+  function init() {
+    $("#todaysDate").text(outputDate);
+    renderLocalStorage();
+  }
 
   //  events
   /* clicking save button */
@@ -29,12 +33,16 @@ $(document).ready(function() {
       .attr("id"); //making the value same as time it is assigned to
 
     localStorage.setItem(time, value);
+    //if clicked change style.color
   });
 
+  /* check local storage object for matching id */
+
   function renderLocalStorage() {
+    //assigning the content to a var from storage
     var hourNine = localStorage.getItem("hour-9");
     $("#hourNine").text(hourNine);
-
+    // putting storage straight into element
     $("#hourTen").text(localStorage.getItem("hour-10"));
     $("#hourEleven").text(localStorage.getItem("hour-11"));
     $("#hourTwelve").text(localStorage.getItem("hour-12"));
@@ -44,13 +52,12 @@ $(document).ready(function() {
     $("#hourSixteen").text(localStorage.getItem("hour-16"));
     $("#hourSeventeen").text(localStorage.getItem("hour-17"));
   }
-  renderLocalStorage();
-  /* events */
-  /* takes text and saves it to local storage */
 
-  /* init */
+  /* events */
+
   /* check local storage object for matching id */
 
   /* color code past, current and future bars */
   // init
+  init();
 });

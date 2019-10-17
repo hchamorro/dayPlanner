@@ -24,6 +24,9 @@
 .bgc-white {
   background: white;
 }
+.bgc-gainsboro {
+  background-color: gainsboro;
+}
 .bd-n {
   border: none;
 }
@@ -54,6 +57,12 @@
 }
 .d-ib {
   display: inline-block;
+}
+.fa-save {
+  color: dodgerblue;
+}
+.fa-save:active {
+  color: rgb(117, 116, 116);
 }
 
 .ff-turrent {
@@ -120,6 +129,9 @@
 }
 .ov-h {
   overflow: hidden;
+}
+.p-\.5 {
+  padding: 0.5rem;
 }
 .p-1 {
   padding: 1rem;
