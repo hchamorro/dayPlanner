@@ -53,7 +53,7 @@ $(document).ready(function() {
       var taTime = textArea[i].id;
       if (now === taTime) {
         $(`#${taTime}`).attr("style", "background-color:rgb(252, 252, 127)");
-      } else if (now < taTime) {
+      } else if (now > taTime) {
         $(`#${taTime}`).attr("style", "background-color:red");
       }
     }
