@@ -1,24 +1,16 @@
 $(document).ready(function() {
   /* variables */
-  var d = new Date();
-  var month = d.getMonth() + 1;
-  var day = d.getDate();
-
+  let currentDate = moment().format("MMM Do YYYY");
+  let currentTime = moment().format("h:mm a");
   /* todays date */
-  var outputDate =
-    (month < 10 ? "0" : "") +
-    month +
-    "/" +
-    (day < 10 ? "0" : "") +
-    day +
-    "/" +
-    d.getFullYear();
 
   /* helper functions */
 
   function init() {
-    $("#todaysDate").text(outputDate);
+    $("#todaysDate").text(currentDate);
+    $("#currentTime").text(currentTime);
     renderLocalStorage();
+    checkTime();
   }
 
   //  events
@@ -41,18 +33,31 @@ $(document).ready(function() {
   function renderLocalStorage() {
     //assigning the content to a var from storage
     var hourNine = localStorage.getItem("hour-9");
-    $("#hourNine").text(hourNine);
+    $("#9").text(hourNine);
     // putting storage straight into element
-    $("#hourTen").text(localStorage.getItem("hour-10"));
-    $("#hourEleven").text(localStorage.getItem("hour-11"));
-    $("#hourTwelve").text(localStorage.getItem("hour-12"));
-    $("#hourThirteen").text(localStorage.getItem("hour-13"));
-    $("#hourFourteen").text(localStorage.getItem("hour-14"));
-    $("#hourFifteen").text(localStorage.getItem("hour-15"));
-    $("#hourSixteen").text(localStorage.getItem("hour-16"));
-    $("#hourSeventeen").text(localStorage.getItem("hour-17"));
+    $("#10").text(localStorage.getItem("hour-10"));
+    $("#11").text(localStorage.getItem("hour-11"));
+    $("#12").text(localStorage.getItem("hour-12"));
+    $("#13").text(localStorage.getItem("hour-13"));
+    $("#14").text(localStorage.getItem("hour-14"));
+    $("#15").text(localStorage.getItem("hour-15"));
+    $("#16").text(localStorage.getItem("hour-16"));
+    $("#17").text(localStorage.getItem("hour-17"));
   }
 
+  function checkTime() {
+    now = parseInt(moment().format("H"));
+    var textArea = $("textarea");
+    taTime = "";
+    for (i = 0; i < textArea.length; i++) {
+      var taTime = textArea[i].id;
+      if (now === taTime) {
+        $(`#${taTime}`).attr("style", "background-color:rgb(252, 252, 127)");
+      } else if (now < taTime) {
+        $(`#${taTime}`).attr("style", "background-color:red");
+      }
+    }
+  }
   /* events */
 
   /* check local storage object for matching id */
