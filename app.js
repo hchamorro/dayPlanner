@@ -54,7 +54,7 @@ $(document).ready(function() {
       if (now === taTime) {
         $(`#${taTime}`).attr("style", "background-color:rgb(252, 252, 127)");
       } else if (now > taTime) {
-        $(`#${taTime}`).attr("style", "background-color:red");
+        $(`#${taTime}`).attr("style", "background-color:(255, 153, 153)");
       }
     }
   }
